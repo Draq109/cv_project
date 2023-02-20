@@ -1,4 +1,10 @@
 import './styles/App.css';
+import TextField from '@mui/material/TextField';
+import { blue, red } from '@mui/material/colors';
+
+const inputProps = {
+  color: red,
+};
 
 function PersonalField() {
   return (
@@ -9,6 +15,7 @@ function PersonalField() {
       <TextInput attrName={"title"} text={"Title:"} ></TextInput>
       <TextInput attrName={"addr"} text={"Address:"} ></TextInput>
       <TextInput attrName={"email"} text={"Email:"} ></TextInput>
+      <p>Current Data:</p>
     </div>
   )
 }
@@ -23,18 +30,26 @@ function EducationField() {
       <TextInput attrName={"gpa"} text={"GPA:"} ></TextInput>
       <TextInput attrName={"from"} text={"From:"} ></TextInput>
       <TextInput attrName={"to"} text={"To:"} ></TextInput>
+      <div>
+        <button className="Add-button Education-field">Add</button>
+        <button className="Clear-button Education-Field">Clear</button>
+      </div>
     </div>
   )
 }
 function ExperienceField() {
   return (
     <div className="experienceField field">
-      <h2>Education</h2>
+      <h2>Experience</h2>
       <TextInput attrName={"pos"} text={"Position:"} ></TextInput>
       <TextInput attrName={"company"} text={"Company:"} ></TextInput>
       <TextInput attrName={"city"} text={"City:"} ></TextInput>
       <TextInput attrName={"from"} text={"From:"} ></TextInput>
       <TextInput attrName={"to"} text={"To:"} ></TextInput>
+      <div>
+        <button className="Add-button Experience-field">Add</button>
+        <button className="Clear-button Experience-Field">Clear</button>
+      </div>
     </div>
   )
 }
@@ -51,9 +66,12 @@ function TextInput({ attrName, text }) {
 function MainForm() {
   return (
     <form>
-      <PersonalField></PersonalField>
-      <EducationField></EducationField>
-      <ExperienceField></ExperienceField>
+      <div className='Fields'>
+        <PersonalField></PersonalField>
+        <EducationField></EducationField>
+        <ExperienceField></ExperienceField>
+      </div>
+      <button className='Download-button'>Download PDF</button>
     </form>
   );
 }
